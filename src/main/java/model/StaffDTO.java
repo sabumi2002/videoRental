@@ -2,14 +2,14 @@ package model;
 
 public class StaffDTO {
     // staff
-    int staff_id;
-    String first_name;
-    String last_name;
-    int address_id;
-    String email;
-    int store_id;
-    String username;
-    String password;
+    private int staff_id;
+    private String first_name;
+    private String last_name;
+    private int address_id;
+    private String email;
+    private int store_id;
+    private String username;
+    private String password;
 
     public int getStaff_id() {
         return staff_id;
@@ -73,5 +73,18 @@ public class StaffDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public StaffDTO(){}
+    public StaffDTO(int staff_id){
+        this.staff_id = staff_id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof StaffDTO){
+            StaffDTO s = (StaffDTO) o;
+            return staff_id == s.getStaff_id();
+        }
+        return false;
     }
 }

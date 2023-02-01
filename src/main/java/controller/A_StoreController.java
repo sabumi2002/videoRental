@@ -8,7 +8,7 @@ import java.sql.Connection;
 public class A_StoreController {
     StaffDTO logIn;
     Connection connection;
-    A_StoreController(Connection connection){
+    public A_StoreController(Connection connection){
         this.connection = connection;
     }
 

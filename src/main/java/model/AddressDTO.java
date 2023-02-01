@@ -1,9 +1,11 @@
 package model;
 
+import com.mysql.cj.xdevapi.AddResult;
+
 import java.util.Date;
 
 public class AddressDTO {
-    private int id;
+    private int address_id;
     String address;
     int city_id;
     String postal_code;
@@ -11,12 +13,12 @@ public class AddressDTO {
     private String city;    // city_Table
     private String country; // county_Table
 
-    public int getId() {
-        return id;
+    public int getAddress_id() {
+        return address_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAddress_id(int address_id) {
+        this.address_id = address_id;
     }
 
     public String getAddress() {
@@ -65,5 +67,21 @@ public class AddressDTO {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public AddressDTO(){
+
+    }
+    public AddressDTO(int id){
+        this.address_id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof AddressDTO){
+            AddressDTO a = (AddressDTO) o;
+            return address_id == a.address_id;
+        }
+        return false;
     }
 }

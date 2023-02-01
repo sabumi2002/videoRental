@@ -1,21 +1,19 @@
 package model;
 
-import java.util.ArrayList;
-
 public class StoreDTO {
     // store, inventory, address, city
     // 비디오번호, 스태프
 
-    int id;
+    int store_id;
     int manager_staff_Id;
     int address_id;
 
-    public int getId() {
-        return id;
+    public int getStore_id() {
+        return store_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStore_id(int store_id) {
+        this.store_id = store_id;
     }
 
     public int getManager_staff_Id() {

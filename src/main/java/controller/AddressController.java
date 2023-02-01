@@ -18,18 +18,18 @@ public class AddressController {
     public AddressDTO selectOne(int id) {
         AddressDTO addressDTO = new AddressDTO();
         String query = "SELECT a.*, c.city, ctr.country FROM sakila.address AS a" +
-                "INNER JOIN sakila.city AS c" +
-                "ON a.city_id = c.city_id" +
-                "INNER JOIN sakila.country as ctr" +
-                "ON c.country_id = ctr.country_id" +
-                "WHERE a.address_id = ?";
+                " INNER JOIN sakila.city AS c" +
+                " ON a.city_id = c.city_id" +
+                " INNER JOIN sakila.country as ctr" +
+                " ON c.country_id = ctr.country_id" +
+                " WHERE a.address_id = ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setInt(1, id);
             ResultSet resultSet = pstmt.executeQuery();
 
             if (resultSet.next()) {
-                addressDTO.setId(resultSet.getInt("id"));
+                addressDTO.setAddress_id(resultSet.getInt("address_id"));
                 addressDTO.setAddress(resultSet.getString("address"));
                 addressDTO.setCity_id(resultSet.getInt("city_id"));
                 addressDTO.setPostal_code(resultSet.getString("postal_code"));
@@ -60,7 +60,7 @@ public class AddressController {
 
             while(resultSet.next()){
                 AddressDTO addressDTO = new AddressDTO();
-                addressDTO.setId(resultSet.getInt("id"));
+                addressDTO.setAddress_id(resultSet.getInt("id"));
                 addressDTO.setAddress(resultSet.getString("address"));
                 addressDTO.setCity_id(resultSet.getInt("city_id"));
                 addressDTO.setPostal_code(resultSet.getString("postal_code"));

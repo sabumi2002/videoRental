@@ -22,7 +22,7 @@ public class StoreController {
             pstmt.setInt(1, id);
             ResultSet resultSet = pstmt.executeQuery();
             if(resultSet.next()){
-                s.setId(resultSet.getInt("store_id"));
+                s.setStore_id(resultSet.getInt("store_id"));
                 s.setAddress_id(resultSet.getInt("address_id"));
                 s.setManager_staff_Id(resultSet.getInt("manager_staff_id"));
             }
@@ -41,7 +41,7 @@ public class StoreController {
             ResultSet resultSet = pstmt.executeQuery();
             while(resultSet.next()){
                 StoreDTO s = new StoreDTO();
-                s.setId(resultSet.getInt("id"));
+                s.setStore_id(resultSet.getInt("id"));
                 s.setAddress_id(resultSet.getInt("address_id"));
                 s.setManager_staff_Id(resultSet.getInt("manager_staff_id"));
 
@@ -52,5 +52,50 @@ public class StoreController {
             e.printStackTrace();
         }
         return list;
+    }
+    public void insert(StoreDTO storeDTO){
+        String query = "INSERT INTO `store`(`manager_staff_Id`, `address_id` )" +
+                "VALUES(?, ?)";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, storeDTO.getManager_staff_Id());
+            pstmt.setInt(2, storeDTO.getAddress_id());
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void update(StoreDTO storeDTO){
+        String query = "UPDATE `store` SET `manager_staff_id`=?, `address_id`=? WHERE `store_id`=?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, storeDTO.getManager_staff_Id());
+            pstmt.setInt(2, storeDTO.getAddress_id());
+            pstmt.setInt(3, storeDTO.getStore_id());
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void delete(int id){
+        String query = "DELETE FROM `board` WHERE `id` = ?";
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }
