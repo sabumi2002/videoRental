@@ -6,7 +6,7 @@ public class A_filmDTO {
     String title;
     String description;
     int release_year;
-    String ranguage;
+    String language;
     int length;
     String special_features;
     String category;
@@ -43,12 +43,12 @@ public class A_filmDTO {
         this.release_year = release_year;
     }
 
-    public String getRanguage() {
-        return ranguage;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setRanguage(String ranguage) {
-        this.ranguage = ranguage;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public int getLength() {
@@ -73,5 +73,23 @@ public class A_filmDTO {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public A_filmDTO(int film_id){
+        this.film_id = film_id;
+    }
+    public A_filmDTO(){
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof A_filmDTO){
+            A_filmDTO f = (A_filmDTO) o;
+            return film_id == f.film_id;
+
+        }
+
+        return false;
     }
 }

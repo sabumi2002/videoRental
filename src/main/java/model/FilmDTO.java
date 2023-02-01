@@ -1,28 +1,27 @@
 package model;
 
-import java.util.ArrayList;
-
 public class FilmDTO {
     // film, film_category, category, actor, language
     // film_id, title, description, language, rental_duration, rental_rate, replacement_cost, category_name, actor_name
 
-    int id;
-    String title;
-    String description;
-    String release_year;    //개봉년도
-    int language_id;    //번역
-    int original_language_id;   //기존언어
-    int rental_duration;    // 대여기간
-    int rental_rate;    // 대여기간당 대여비용
-    int replacement_cost;   // 청구비용
-    String special_features;    // 특징
+    private int film_id;
+    private String title;
+    private String description;
+    private int release_year;    //개봉년도
+    private int language_id;    //번역
+    private int original_language_id;   //기존언어
+    private int rental_duration;    // 대여기간
+    private int rental_rate;    // 대여기간당 대여비용
+    private int length;
+    private int replacement_cost;   // 청구비용
+    private String special_features;    // 특징
 
-    public int getId() {
-        return id;
+    public int getFilm_id() {
+        return film_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
     }
 
     public String getTitle() {
@@ -41,11 +40,11 @@ public class FilmDTO {
         this.description = description;
     }
 
-    public String getRelease_year() {
+    public int getRelease_year() {
         return release_year;
     }
 
-    public void setRelease_year(String release_year) {
+    public void setRelease_year(int release_year) {
         this.release_year = release_year;
     }
 
@@ -79,6 +78,14 @@ public class FilmDTO {
 
     public void setRental_rate(int rental_rate) {
         this.rental_rate = rental_rate;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 
     public int getReplacement_cost() {

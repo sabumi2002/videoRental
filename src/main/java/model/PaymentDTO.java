@@ -3,19 +3,19 @@ package model;
 import java.util.Date;
 
 public class PaymentDTO {
-    int id;
+    int payment_id;
     int customer_id;
     int staff_id;
     int rental_id;
     int amount; // 청구비용
-    Date payment_date;  // 청구날짜
+    Date payment_date;  // 지불날짜
 
-    public int getId() {
-        return id;
+    public int getPayment_id() {
+        return payment_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPayment_id(int payment_id) {
+        this.payment_id = payment_id;
     }
 
     public int getCustomer_id() {

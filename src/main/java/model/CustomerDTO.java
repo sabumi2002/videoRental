@@ -6,7 +6,7 @@ public class CustomerDTO {
     // customer
     // customer_id, store_id, first_name, last_name, address_id, create_date
 
-    int id;
+    int customer_id;
     int store_id;
     String first_name;
     String last_name;
@@ -14,12 +14,12 @@ public class CustomerDTO {
     int address_id;
     Date create_date;
 
-    public int getId() {
-        return id;
+    public int getCustomer_id() {
+        return customer_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
     }
 
     public int getStore_id() {
@@ -68,5 +68,18 @@ public class CustomerDTO {
 
     public void setCreate_date(Date create_date) {
         this.create_date = create_date;
+    }
+    public CustomerDTO(){}
+    public CustomerDTO(int customer_id){
+        this.customer_id = customer_id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof CustomerDTO){
+            CustomerDTO c = (CustomerDTO) o;
+            return customer_id == c.customer_id;
+        }
+        return false;
     }
 }
